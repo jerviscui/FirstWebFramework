@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 using Data;
+using Newtonsoft.Json;
 
 namespace FirstWebFramework.Controllers
 {
@@ -13,6 +14,17 @@ namespace FirstWebFramework.Controllers
     {
         public ActionResult Index()
         {
+            Entity entity = new Entity()
+            {
+                Id = 1,
+                Name = "test",
+                Sex = "guess"
+            };
+
+            string json = JsonConvert.SerializeObject(entity);
+            var obj = JsonConvert.DeserializeObject<Entity>(json);
+
+
             return View();
         }
 
