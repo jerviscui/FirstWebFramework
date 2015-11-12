@@ -8,6 +8,7 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Core;
 using Autofac.Integration.Mvc;
+using DataService;
 using FirstWebFramework.Infrastructure;
 
 namespace FirstWebFramework
@@ -20,7 +21,6 @@ namespace FirstWebFramework
             builder.RegisterControllers(typeof (MvcApplication).Assembly);
             RegisterDependencies(builder);
             IContainer container = builder.Build();
-
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             AreaRegistration.RegisterAllAreas();
@@ -33,7 +33,7 @@ namespace FirstWebFramework
 
         private static void RegisterDependencies(ContainerBuilder builder)
         {
-            
+            builder.RegisterType<EntityService>().As<IEntityService>().InstancePerRequest();
         }
     }
 }
