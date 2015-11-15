@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 using Data;
+using DataService;
 using FirstWebFramework.Extension;
 using Newtonsoft.Json;
 
@@ -13,14 +14,19 @@ namespace FirstWebFramework.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IEntityService _entityService;
+
+        /// <summary>
+        /// 初始化 <see cref="T:System.Web.Mvc.Controller"/> 类的新实例。
+        /// </summary>
+        public HomeController(IEntityService entityService)
+        {
+            _entityService = entityService;
+        }
+
         public ActionResult Index()
         {
-            Entity entity = new Entity()
-            {
-                Id = 1,
-                Name = "test",
-                Sex = "man"
-            };
+            Entity entity = _entityService.GetEntity();
 
             string json = JsonConvert.SerializeObject(entity);
             var obj = JsonConvert.DeserializeObject<Entity>(json);

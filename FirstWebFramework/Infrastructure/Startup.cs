@@ -1,8 +1,9 @@
-﻿using Microsoft.Owin;
+﻿using FirstWebFramework.Infrastructure;
+using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(FirstWebFramework.Startup))]
-namespace FirstWebFramework
+[assembly: OwinStartup(typeof(Startup))]
+namespace FirstWebFramework.Infrastructure
 {
     public partial class Startup
     {
