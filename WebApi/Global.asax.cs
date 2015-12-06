@@ -40,7 +40,7 @@ namespace WebApi
             jsonFormatter.SerializerSettings.Converters.Add(new PagedListConverter());
             jsonFormatter.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
             //Microsoft JSON date format ("/Date(ticks)/")
-            jsonFormatter.SerializerSettings.DateFormatHandling = DateFormatHandling.MicrosoftDateFormat;
+            //jsonFormatter.SerializerSettings.DateFormatHandling = DateFormatHandling.MicrosoftDateFormat;
             //ISO 8601 date format ("2015-03-05T05:40Z")  2015-03-05Thh:mm:ss.ffffffZ
             jsonFormatter.SerializerSettings.DateFormatHandling = DateFormatHandling.IsoDateFormat;
 
