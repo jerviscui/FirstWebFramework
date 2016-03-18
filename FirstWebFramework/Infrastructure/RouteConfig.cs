@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace FirstWebFramework.Infrastructure
+namespace Web.Infrastructure
 {
     public class RouteConfig
     {

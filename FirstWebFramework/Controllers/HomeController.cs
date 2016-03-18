@@ -6,11 +6,11 @@ using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 using Data;
-using DataService;
-using FirstWebFramework.Extension;
+using Web.Extension;
 using Newtonsoft.Json;
+using WebService;
 
-namespace FirstWebFramework.Controllers
+namespace Web.Controllers
 {
     public class HomeController : Controller
     {

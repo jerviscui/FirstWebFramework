@@ -1,12 +1,12 @@
 ﻿using System;
-using FirstWebFramework.Models;
+using Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 
-namespace FirstWebFramework.Infrastructure
+namespace Web.Infrastructure
 {
     public partial class Startup
     {

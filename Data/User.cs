@@ -4,16 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Web.Models
+namespace Data
 {
-    public class EntityModel
+    public class User
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public int UserName { get; set; }
 
-        public string Sex { get; set; }
-
-        public string Like { get; set; }
+        public ICollection<Role> Roles { get; set; }
     }
 }

@@ -8,32 +8,36 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Core;
 using Autofac.Integration.Mvc;
-using DataService;
-using FirstWebFramework.Infrastructure;
+using Web.Infrastructure;
+using WebFramework;
+using WebService;
 
-namespace FirstWebFramework
+namespace Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
         {
-            ContainerBuilder builder = new ContainerBuilder();
-            builder.RegisterControllers(typeof (MvcApplication).Assembly);
-            RegisterDependencies(builder);
-            IContainer container = builder.Build();
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            AutoMapperConfiguration.RegisterAutoMapperConfig();
-        }
+            ContainerBuilder builder = new ContainerBuilder();
+            
 
-        private static void RegisterDependencies(ContainerBuilder builder)
-        {
-            builder.RegisterType<EntityService>().As<IEntityService>().InstancePerRequest();
+            var engine = EngineContext.Engine;
+            //ioc provider
+            //user provider
+            //init
+            engine.Initialize();
+
+            IContainer container = builder.Build();
+            builder.RegisterControllers(typeof (MvcApplication).Assembly);
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            //container.Resolve<>();
+
+            AutoMapperConfiguration.RegisterAutoMapperConfig();
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using Data;
-using FirstWebFramework.Models;
+using Web.Models;
 
-namespace FirstWebFramework.Extension
+namespace Web.Extension
 {
     public static class ModelMapping
     {

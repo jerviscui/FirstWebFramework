@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using AutoMapper;
 using Data;
-using FirstWebFramework.Models;
+using Web.Models;
 
-namespace FirstWebFramework.Infrastructure
+namespace Web.Infrastructure
 {
     public static class AutoMapperConfiguration
     {

@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace FirstWebFramework.Areas.Admin
+namespace Web.Areas.Admin
 {
     public class AdminAreaRegistration : AreaRegistration 
     {

@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace FirstWebFramework.Infrastructure
+namespace Web.Infrastructure
 {
     public class BundleConfig
     {

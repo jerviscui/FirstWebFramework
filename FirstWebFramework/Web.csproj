@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FirstWebFramework</RootNamespace>
-    <AssemblyName>FirstWebFramework</AssemblyName>
+    <RootNamespace>Web</RootNamespace>
+    <AssemblyName>Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -186,6 +186,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Controllers\EntityController.cs" />
     <Compile Include="Infrastructure\BundleConfig.cs" />
+    <Compile Include="Infrastructure\DependencyRegister.cs" />
     <Compile Include="Infrastructure\FilterConfig.cs" />
     <Compile Include="Infrastructure\IdentityConfig.cs" />
     <Compile Include="Infrastructure\RouteConfig.cs" />
@@ -289,13 +290,21 @@
       <Project>{485eac15-52f7-4c3a-ab23-8ab012720f5b}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataService\DataService.csproj">
-      <Project>{d18a7141-0a46-4819-a298-d3212d8a9bd9}</Project>
-      <Name>DataService</Name>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{1784E041-AE35-4767-AB57-31975CB71A0D}</Project>
+      <Name>Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{85c82733-a677-422e-818a-cb54c73250b9}</Project>
       <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebFramework\WebFramework.csproj">
+      <Project>{fdaa5216-3d5a-489b-8ac5-d08ce0f85b55}</Project>
+      <Name>WebFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebService\WebService.csproj">
+      <Project>{c075ce5f-a4a9-4374-a3c7-f5c761eb01f9}</Project>
+      <Name>WebService</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

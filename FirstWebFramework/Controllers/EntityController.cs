@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace FirstWebFramework.Controllers
+namespace Web.Controllers
 {
     public class EntityController : Controller
     {

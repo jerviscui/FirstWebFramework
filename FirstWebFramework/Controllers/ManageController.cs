@@ -3,13 +3,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using FirstWebFramework.Infrastructure;
+using Web.Infrastructure;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using FirstWebFramework.Models;
+using Web.Models;
 
-namespace FirstWebFramework.Controllers
+namespace Web.Controllers
 {
     [Authorize]
     public class ManageController : Controller
