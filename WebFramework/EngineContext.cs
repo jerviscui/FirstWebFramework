@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Autofac;
 
 namespace WebFramework
 {
@@ -18,9 +20,12 @@ namespace WebFramework
 
         public static void Init()
         {
-            _currentEngine = new WebEngine(new DelegateRoleProvider(null, null));
+            Init(null);
         }
 
-
+        public static void Init(Action<ContainerBuilder> registerControllersAction)
+        {
+            _currentEngine = new WebEngine(new DefaultUserProvider(null), registerControllersAction);
+        }
     }
 }

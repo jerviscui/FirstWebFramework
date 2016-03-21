@@ -15,6 +15,8 @@ namespace Web.Infrastructure
         public void Register(ContainerBuilder builder)
         {
             builder.RegisterType<EntityService>().As<IEntityService>().InstancePerRequest();
+
+            var container = builder.Build();
         }
 
         public int Order()

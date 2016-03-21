@@ -23,21 +23,16 @@ namespace Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            ContainerBuilder builder = new ContainerBuilder();
-            
+            EngineContext.Init(containerBuilder => containerBuilder.RegisterControllers(typeof(MvcApplication).Assembly));
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(EngineContext.Engine.Container));
 
-            var engine = EngineContext.Engine;
-            //ioc provider
-            //user provider
-            //init
-            engine.Initialize();
-
-            IContainer container = builder.Build();
-            builder.RegisterControllers(typeof (MvcApplication).Assembly);
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             //container.Resolve<>();
+            //EngineContext.Engine.Container.Resolve<>()
+            //EngineContext.Engine.Resolve<>()
 
             AutoMapperConfiguration.RegisterAutoMapperConfig();
+
+            var aaa =  HttpContext.Current.Items["aa"];
         }
     }
 }

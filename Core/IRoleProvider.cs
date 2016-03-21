@@ -4,8 +4,8 @@ namespace Core
 {
     public interface IRoleProvider
     {
-        IEnumerable<string> GetRolesForUser(string user);
+        string[] GetRolesForUser(string username);
 
-        bool IsRole(string user, string role);
+        bool IsUserInRole(string username, string roleName);
     }
 }
