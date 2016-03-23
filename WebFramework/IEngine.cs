@@ -15,5 +15,10 @@ namespace WebFramework
         IContainer Container { get; }
 
         TService Resolve<TService>();
+
+        /// <summary>
+        /// 请求结束处理
+        /// </summary>
+        void EndRequest(object sender, EventArgs e);
     }
 }

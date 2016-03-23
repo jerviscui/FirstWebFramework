@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Autofac;
+using Core;
+using Data;
 
 namespace WebFramework
 {
@@ -23,9 +25,26 @@ namespace WebFramework
             Init(null);
         }
 
+        public static void Init(IUserProvider userProvider, Action<ContainerBuilder> registerControllersAction)
+        {
+            _currentEngine = new WebEngine(userProvider, registerControllersAction);
+        }
+
         public static void Init(Action<ContainerBuilder> registerControllersAction)
         {
-            _currentEngine = new WebEngine(new DefaultUserProvider(null), registerControllersAction);
+            Init(new DefaultUserProvider(() => new User()
+            {
+                Id = 0,
+                UserName = "AdminMan",
+                Roles = new List<Role>()
+                {
+                    new Role()
+                    {
+                        RoleName = "Administrator", 
+                        Permissions = new List<Permission>() { new Permission() { PermissionName = "All" } }
+                    }
+                }
+            }), registerControllersAction);
         }
     }
 }

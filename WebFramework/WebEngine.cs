@@ -56,5 +56,10 @@ namespace WebFramework
         {
             return Container.Resolve<TService>();
         }
+
+        public void EndRequest(object sender, EventArgs e)
+        {
+            UserContext.Clear();
+        }
     }
 }

@@ -26,13 +26,15 @@ namespace Web
             EngineContext.Init(containerBuilder => containerBuilder.RegisterControllers(typeof(MvcApplication).Assembly));
             DependencyResolver.SetResolver(new AutofacDependencyResolver(EngineContext.Engine.Container));
 
-            //container.Resolve<>();
-            //EngineContext.Engine.Container.Resolve<>()
-            //EngineContext.Engine.Resolve<>()
+            //create Application_EndRequest method or add to EndRequest event
+            //EndRequest += EngineContext.Engine.EndRequest;
 
             AutoMapperConfiguration.RegisterAutoMapperConfig();
+        }
 
-            var aaa =  HttpContext.Current.Items["aa"];
+        protected void Application_EndRequest(object sender, EventArgs e)
+        {
+            EngineContext.Engine.EndRequest(sender, e);
         }
     }
 }

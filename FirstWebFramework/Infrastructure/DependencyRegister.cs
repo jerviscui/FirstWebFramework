@@ -11,12 +11,9 @@ namespace Web.Infrastructure
 {
     public class DependencyRegister : IDependencyRegister
     {
-
         public void Register(ContainerBuilder builder)
         {
             builder.RegisterType<EntityService>().As<IEntityService>().InstancePerRequest();
-
-            var container = builder.Build();
         }
 
         public int Order()
