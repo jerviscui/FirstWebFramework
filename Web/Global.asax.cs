@@ -11,6 +11,7 @@ using Autofac.Integration.Mvc;
 using Web.Infrastructure;
 using WebFramework;
 using WebService;
+using System.Reflection;
 
 namespace Web
 {
@@ -28,6 +29,9 @@ namespace Web
 
             //create Application_EndRequest method or add to EndRequest event
             //EndRequest += EngineContext.Engine.EndRequest;
+
+            Assembly.GetAssembly(typeof (MvcApplication));
+            
 
             AutoMapperConfiguration.RegisterAutoMapperConfig();
         }

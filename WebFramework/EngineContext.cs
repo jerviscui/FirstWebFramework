@@ -32,19 +32,7 @@ namespace WebFramework
 
         public static void Init(Action<ContainerBuilder> registerControllersAction)
         {
-            Init(new DefaultUserProvider(() => new User()
-            {
-                Id = 0,
-                UserName = "AdminMan",
-                Roles = new List<Role>()
-                {
-                    new Role()
-                    {
-                        RoleName = "Administrator", 
-                        Permissions = new List<Permission>() { new Permission() { PermissionName = "All" } }
-                    }
-                }
-            }), registerControllersAction);
+            _currentEngine = new WebEngine(registerControllersAction);
         }
     }
 }

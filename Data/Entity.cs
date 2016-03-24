@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public class Entity
+    public class Entity : BaseEntity
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public string Sex { get; set; }

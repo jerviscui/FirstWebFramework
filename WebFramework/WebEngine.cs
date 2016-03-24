@@ -7,6 +7,7 @@ using Autofac;
 using Core;
 using Data;
 using System.Reflection;
+using DataService;
 
 namespace WebFramework
 {
@@ -27,14 +28,35 @@ namespace WebFramework
             Initialize();
         }
 
+        public WebEngine(Action<ContainerBuilder> registerControllersAction)
+            : this(new DefaultUserProvider(() => new User()
+            {
+                Id = 0,
+                UserName = "AdminMan",
+                Roles = new List<Role>()
+                {
+                    new Role()
+                    {
+                        RoleName = "Administrator", 
+                        Permissions = new List<Permission>() { new Permission() { PermissionName = "All" } }
+                    }
+                }
+            }), registerControllersAction)
+        {
+
+        }
+
         private void Initialize()
         {
             ContainerBuilder builder = new ContainerBuilder();
 
             //init db setting
-
-            //regist all dependencies
+            builder.RegisterType<EfDbContext>().As<IDbContext>().InstancePerRequest();
+            builder.RegisterGeneric(typeof (Repository<>)).As(typeof (IRepository<>)).InstancePerRequest();
             
+            //regist all dependencies
+            Assembly.GetCallingAssembly();
+
             if (_registerControllers != null)
             {
                 _registerControllers(builder);

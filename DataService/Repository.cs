@@ -7,14 +7,14 @@ using Data;
 
 namespace DataService
 {
-    public class Respository<T> : IRespository<T> where T : BaseEntity
+    public class Repository<T> : IRepository<T> where T : BaseEntity
     {
         private readonly IDbContext _dbContext;
 
         /// <summary>
         /// 初始化 <see cref="T:System.Object"/> 类的新实例。
         /// </summary>
-        public Respository(IDbContext dbContext)
+        public Repository(IDbContext dbContext)
         {
             _dbContext = dbContext;
         }

@@ -7,7 +7,7 @@ using Data;
 
 namespace DataService
 {
-    public interface IRespository<T> where T : BaseEntity
+    public interface IRepository<T> where T : BaseEntity
     {
         IQueryable<T> Table { get; }
 

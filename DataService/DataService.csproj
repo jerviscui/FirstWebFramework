@@ -59,10 +59,8 @@
   <ItemGroup>
     <Compile Include="EFDbContext.cs" />
     <Compile Include="IDbContext.cs" />
-    <Compile Include="IRespository.cs" />
-    <Compile Include="Respository.cs" />
-    <Compile Include="EntityService.cs" />
-    <Compile Include="IEntityService.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Maps\BaseMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
